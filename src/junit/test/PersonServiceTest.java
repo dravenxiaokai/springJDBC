@@ -28,5 +28,10 @@ class PersonServiceTest {
 	public void save() {
 		personService.save(new Person("dravenxiaokai"));
 	}
+	@Test
+	public void getPerson() {
+		Person person = personService.getPerson(1);
+		System.out.println(person.getName());
+	}
 
 }

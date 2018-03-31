@@ -5,6 +5,7 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import ren.draven.bean.Person;
@@ -26,14 +27,15 @@ public class PersonServiceBean implements PersonService {
 
 	public void update(Person person) {
 		jdbcTemplate.update("update person set name=? where id=?", new Object[] { person.getName(), person.getId() },
-				new int[] { java.sql.Types.VARCHAR,java.sql.Types.INTEGER });
+				new int[] { java.sql.Types.VARCHAR, java.sql.Types.INTEGER });
 	}
 
+	@Transactional(propagation = Propagation.NOT_SUPPORTED)
 	public Person getPerson(Integer personId) {
 		return (Person) jdbcTemplate.queryForObject("select * from person where id=?", new Object[] { personId },
 				new int[] { java.sql.Types.INTEGER }, new PersonRowMapper());
 	}
-
+	@Transactional(propagation = Propagation.NOT_SUPPORTED)
 	public List<Person> getPersons() {
 		return (List<Person>) jdbcTemplate.query("select * from person", new PersonRowMapper());
 	}

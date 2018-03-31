@@ -39,5 +39,9 @@ class PersonServiceTest {
 		person.setName("小凯");
 		personService.update(person);
 	}
+	@Test
+	public void delete() {
+		personService.delete(1);
+	}
 
 }

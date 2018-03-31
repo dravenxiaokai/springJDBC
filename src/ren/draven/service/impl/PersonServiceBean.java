@@ -37,7 +37,7 @@ public class PersonServiceBean implements PersonService {
 	}
 
 	public void delete(Integer personId) {
-		jdbcTemplate.update("delete person where id=?", new Object[] { personId },
+		jdbcTemplate.update("delete from person where id=?", new Object[] { personId },
 				new int[] { java.sql.Types.INTEGER });
 	}
 

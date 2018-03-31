@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/spring"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/aop"/>
+	<classpathentry kind="lib" path="D:/devtools/soft/commons/commons-dbcp-1.2.2.jar"/>
+	<classpathentry kind="lib" path="D:/devtools/soft/commons/commons-logging-1.3.jar"/>
+	<classpathentry kind="lib" path="D:/devtools/soft/commons/commons-pool-1.5.2.jar"/>
+	<classpathentry kind="lib" path="D:/devtools/soft/mysql-connector-java-5.1.46-bin.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

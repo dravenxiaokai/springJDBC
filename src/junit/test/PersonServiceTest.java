@@ -2,6 +2,7 @@ package junit.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.aspectj.weaver.ast.Var;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
@@ -16,7 +17,7 @@ class PersonServiceTest {
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
-		 personService = (PersonService) context.getBean("personService");
+		personService = (PersonService) context.getBean("personService");
 	}
 
 	@Test
@@ -26,22 +27,33 @@ class PersonServiceTest {
 
 	@Test
 	public void save() {
-		personService.save(new Person("dravenxiaokai"));
+		for (int i = 0; i < 5; i++)
+			personService.save(new Person("dravenxiaokai" + i));
 	}
+
 	@Test
 	public void getPerson() {
 		Person person = personService.getPerson(1);
 		System.out.println(person.getName());
 	}
-	@Test 
+
+	@Test
 	public void update() {
 		Person person = personService.getPerson(1);
 		person.setName("小凯");
 		personService.update(person);
 	}
+
 	@Test
 	public void delete() {
 		personService.delete(1);
+	}
+
+	@Test
+	public void getBeans() {
+		for (Person person : personService.getPersons()) {
+			System.out.println(person.getName());
+		}
 	}
 
 }

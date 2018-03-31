@@ -28,15 +28,16 @@ public class PersonServiceBean implements PersonService {
 	}
 
 	public Person getPerson(Integer personId) {
-		return null;
+		return (Person) jdbcTemplate.queryForObject("select * from person where id=?", new Object[] { personId },
+				new int[] { java.sql.Types.INTEGER }, new PersonRowMapper());
 	}
 
 	public List<Person> getPersons() {
-		return null;
+		return (List<Person>) jdbcTemplate.query("select * from person", new PersonRowMapper());
 	}
 
 	public void delete(Integer personId) {
-		jdbcTemplate.update("delete person where id=?", new Object[] { personId},
+		jdbcTemplate.update("delete person where id=?", new Object[] { personId },
 				new int[] { java.sql.Types.INTEGER });
 	}
 

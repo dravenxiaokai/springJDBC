@@ -24,7 +24,7 @@ public class PersonServiceBean implements PersonService {
 
 	public void update(Person person) {
 		jdbcTemplate.update("update person set name=? where id=?", new Object[] { person.getName(), person.getId() },
-				new int[] { java.sql.Types.INTEGER });
+				new int[] { java.sql.Types.VARCHAR,java.sql.Types.INTEGER });
 	}
 
 	public Person getPerson(Integer personId) {

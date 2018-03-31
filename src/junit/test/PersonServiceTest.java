@@ -33,5 +33,11 @@ class PersonServiceTest {
 		Person person = personService.getPerson(1);
 		System.out.println(person.getName());
 	}
+	@Test 
+	public void update() {
+		Person person = personService.getPerson(1);
+		person.setName("小凯");
+		personService.update(person);
+	}
 
 }
